@@ -1,0 +1,30 @@
+{   
+    "name": "jonuriarte/slim3-skeleton",
+    "description": "Slim Framework 3 skeleton with Twig, Monolog, Eloquent, Sentinel, Symfony Translation & AdminLTE",
+    "type": "project",
+    "license": "GPL-3.0",
+    "keywords": ["slim-framework", "skeleton"],
+    "authors": [
+        {
+            "name": "Jon Uriarte",
+            "email": "jonuriartebilbao@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.5",
+        "monolog/monolog": "^1.21",
+        "slim/twig-view": "^2.1",
+        "slim/csrf": "^0.7.0",
+        "zeuxisoo/slim-whoops": "^0.5.0",
+        "slim/flash": "^0.1.0",
+        "illuminate/database": "^5.2",
+        "fzaninotto/faker": "^1.6",
+        "vlucas/phpdotenv": "^2.3",
+        "twig/extensions": "^1.3",
+        "cartalyst/sentinel": "^2.0",
+        "illuminate/events": "^5.2",
+        "symfony/http-foundation": "^3.1",
+        "symfony/translation": "^3.1",
+        "symfony/twig-bridge": "^3.1"
+    }
+}

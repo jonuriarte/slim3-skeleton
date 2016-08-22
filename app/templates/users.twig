@@ -1,0 +1,123 @@
+{% extends 'base/backend.twig' %}
+
+{% block extra_stylesheets %}
+	<!-- DataTables -->
+  <link rel="stylesheet" href="{{ base_url() }}/js/libs/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+{% endblock %}
+
+{% block container %}
+	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        {{ "USERS"|trans }}
+        <small>{{ "CONTROL_PANEL"|trans }}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> {{ "HOME"|trans }}</a></li>
+        <li class="active">{{ "USERS"|trans }}</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">{{ "USERS_LIST"|trans }}</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="users_list" class="table table-bordered table-hover table-responsive">
+                <thead>
+                <tr>
+                  <th>{{ "FIRST_NAME"|trans }}</th>
+                  <th>{{ "LAST_NAME"|trans }}</th>
+                  <th>{{ "EMAIL"|trans }}</th>
+                  <th>{{ "LAST_LOGIN"|trans }}</th>
+                  <th>{{ "OPTIONS"|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user_list in users %}
+                  <tr>
+                    <td>{{user_list.first_name}}</td>
+                    <td>{{user_list.last_name}}</td>
+                    <td>{{user_list.email}}</td>
+                    <td>{{user_list.last_login|date('H:i:s d/m/Y')}}</td>
+                    <td>
+
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{'OPTIONS'|trans}} <span class="caret"></span>
+                          <span class="sr-only">{{'TOGGLE_DROPDOWN'|trans}}</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/user/{{user_list.id}}"><i class="fa fa-pencil-square-o"></i> {{'EDIT'|trans}}</a></li>
+                          <li><a href="/user/acl/{{user_list.id}}"><i class="fa fa-key"></i> {{'PERMISSIONS&ROLES'|trans}}</a></li>
+                          <li class="divider"></li>
+                          <li><a href="/user/delete/{{user_list.id}}"><i class="fa fa-trash-o"></i> {{'DELETE'|trans}}</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>{{ "FIRST_NAME"|trans }}</th>
+                  <th>{{ "LAST_NAME"|trans }}</th>
+                  <th>{{ "EMAIL"|trans }}</th>
+                  <th>{{ "LAST_LOGIN"|trans }}</th>
+                  <th>{{ "OPTIONS"|trans }}</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}
+
+{% block javascripts %}
+	<!-- jQuery -->
+    <script src="{{ base_url() }}/js/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="{{ base_url() }}/js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="{{ base_url() }}/js/libs/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ base_url() }}/js/libs/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="{{ base_url() }}/js/libs/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="{{ base_url() }}/js/libs/AdminLTE/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ base_url() }}/js/libs/AdminLTE/dist/js/app.min.js"></script>
+    <script>
+      $(function () {
+        $('#users_list').DataTable({
+          {% if language == 'es_ES' %}
+          "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
+            },
+          {% endif %}
+          "paging": true,
+          "lengthChange": false,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+        });
+      });
+    </script>
+    
+{% endblock %}

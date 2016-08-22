@@ -1,0 +1,8 @@
+{
+  "analytics": false,
+  "cwd": "js",
+  "directory": "libs",
+  "color": true,
+  "timeout": 60000,
+  "interactive": true
+}

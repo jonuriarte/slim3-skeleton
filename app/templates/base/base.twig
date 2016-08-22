@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}PRUEBA SLIM{% endblock %}</title>
+        {% block metatags %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+        {% block extra_stylesheets %}{% endblock %}
+        {% block head_javascripts %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ base_url() }}/images/favicon.ico" />
+    </head>
+    <body {% block body_params %}{% endblock %}>
+        {% block body %}
+            <div class="wrapper">
+                {% block header %}{% endblock %}
+                {% block sidebar %}{% endblock %}
+                {% block container %}{% endblock %}
+                {% block footer %}{% endblock %}
+            </div>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+        {% block extra_javascripts %}{% endblock %}
+    </body>
+</html>

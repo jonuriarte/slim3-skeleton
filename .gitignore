@@ -1,0 +1,4 @@
+composer.lock
+vendor
+config/.env
+public/js/libs

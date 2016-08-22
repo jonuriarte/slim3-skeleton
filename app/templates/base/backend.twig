@@ -1,0 +1,64 @@
+{% extends 'base/base.twig' %}
+
+{% block metatags %}
+    <meta charset="UTF-8" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock %}
+
+{% block stylesheets %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ base_url() }}/js/libs/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ base_url() }}/js/libs/AdminLTE/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+    -->
+    <link rel="stylesheet" href="{{ base_url() }}/js/libs/AdminLTE/dist/css/skins/skin-green.min.css">
+    <!-- Custom app styles -->
+    <link rel="stylesheet" href="{{ base_url() }}/css/app/custom.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+{% endblock %}
+
+{% block body_params %}class="hold-transition skin-green sidebar-mini"{% endblock %}
+
+{% block header %}
+{% include 'base/header.twig' %}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'base/sidebar.twig' %}
+{% endblock %}
+
+{% block container %}
+{% include 'base/container.twig' %}
+{% endblock %}
+
+{% block control_sidebar %}
+{% include 'base/control_sidebar.twig' %}
+{% endblock %}
+
+{% block footer %}
+{% include 'base/footer.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <!-- jQuery -->
+    <script src="{{ base_url() }}/js/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="{{ base_url() }}/js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ base_url() }}/js/libs/AdminLTE/dist/js/app.min.js"></script>
+
+{% endblock %}

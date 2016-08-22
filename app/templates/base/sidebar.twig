@@ -1,0 +1,46 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="{{ base_url() }}/js/libs/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{user.first_name}} {{user.last_name}}</p>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">{{ "OPTIONS"|trans }}</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span>{{ "DASHBOARD"|trans }}</span></a></li>   
+        {% if user_permissions['user.view'] == true %}
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>{{ "USERS"|trans }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            {% if user_permissions['user.view'] == true %}
+            <li><a href="/users"><i class="fa fa-users"></i> <span>{{ "USERS"|trans }}</span></a></li>   
+            {% endif %}
+            {% if user_permissions['acl.view'] == true %}
+            <li><a href="/acl"><i class="fa fa-key"></i>{{ "PERMISSIONS&ROLES"|trans }}</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        {% endif %}
+
+        <li><a href="/prueba"><i class="fa fa-tag"></i> <span>{{ "TEST"|trans }}</span></a></li>   
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
